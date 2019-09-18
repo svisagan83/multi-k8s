@@ -11,14 +11,14 @@ script:
  - docker run svisagan83/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t svisagan83/multi-client ./client
-  - docker build -t svisagan83/multi-nginx ./nginx
-  - docker build -t svisagan83/multi-server ./server
-  - docker build -t svisagan83/multi-worker ./worker
+  - docker build -t svisagan/multi-client ./client
+  - docker build -t svisagan/multi-nginx ./nginx
+  - docker build -t svisagan/multi-server ./server
+  - docker build -t svisagan/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push svisagan83/multi-client
-  - docker push svisagan83/multi-nginx
-  - docker push svisagan83/multi-server
-  - docker push svisagan83/multi-worker
+  - docker push svisagan/multi-client
+  - docker push svisagan/multi-nginx
+  - docker push svisagan/multi-server
+  - docker push svisagan/multi-worker
